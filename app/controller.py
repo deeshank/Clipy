@@ -80,12 +80,21 @@ def updatePost():
 
 
 def find_uid(uid):
-    return app.config["IDS"].find_one({'uid': uid})
+    try:
+        return app.config["IDS"].find_one({'uid': uid})
+    except Exception,e:
+        logger.error("Exception "+str(e))
 
 
 def update_uid(uid, data):
-    return app.config["IDS"].update_one({'uid': uid}, {'$set': {'data': data}, "$currentDate": {"lastModified": True}})
+    try:
+        return app.config["IDS"].update_one({'uid': uid}, {'$set': {'data': data}, "$currentDate": {"lastModified": True}})
+    except Exception,e:
+        logger.error("Exception " + str(e))
 
 
 def insert_uid(data):
-    return app.config["IDS"].insert_one(data)
+    try:
+        return app.config["IDS"].insert_one(data)
+    except Exception,e:
+        logger.error("Exception " + str(e))

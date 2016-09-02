@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 
     var BASE_URL = "http://localhost:5000";
-
+    alert("Hello");
     $.ajax({
         dataType: "json",
         url: BASE_URL + '/get' + window.location.pathname,
@@ -22,7 +22,7 @@ $(document).ready(function () {
             url: BASE_URL + '/paste',
             data: JSON.stringify({uid: window.location.pathname, data: $("#content").html()}),
             success: function (data) {
-                //alert('data: ' + data);
+                console.log(data);
             },
             contentType: "application/json",
             dataType: 'json'
