@@ -89,7 +89,3 @@ def update_uid(uid, data):
 
 def insert_uid(data):
     return app.config["IDS"].insert_one(data)
-
-
-if __name__ == '__main__':
-    app.run()
