@@ -8,7 +8,6 @@ $(document).ready(function () {
         url: BASE_URL + '/get' + window.location.pathname,
         success: function (data) {
             if (data.status != "ERR") {
-                alert(data.data);
                 $("#content").html(data.data);
             }
         },
